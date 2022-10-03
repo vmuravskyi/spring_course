@@ -9,7 +9,7 @@
 
     <bean id="myPet"
           class="com.muravskyi.spring.spring_introduction.Dog"
-          scope="singleton">
+          scope="prototype">
     </bean>
 
 </beans>
