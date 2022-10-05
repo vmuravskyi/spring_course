@@ -1,9 +1,7 @@
-package com.muravskyi.spring.spring_introduction;
+package com.muravskyi.spring.section01_spring_introduction;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-import java.lang.reflect.Method;
 
 public class Test6 {
 

@@ -1,7 +1,6 @@
-package com.muravskyi.spring.spring_introduction;
+package com.muravskyi.spring.section01_spring_introduction;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 

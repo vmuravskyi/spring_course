@@ -1,10 +1,4 @@
-package com.muravskyi.spring.spring_introduction;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
+package com.muravskyi.spring.section01_spring_introduction;
 
 //@Component("personBean")
 public class Person {
