@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Test5 {
 
     @Test
-    public void testInitAndDestroy() {
+    void testInitAndDestroy() {
         ClassPathXmlApplicationContext context =
             new ClassPathXmlApplicationContext("applicationContextBeanScope.xml");
 
