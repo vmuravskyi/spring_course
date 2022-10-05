@@ -1,5 +1,8 @@
 package com.muravskyi.spring.spring_introduction;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -24,10 +27,12 @@ public class Dog implements Pet {
         System.out.println("Bow-Wow");
     }
 
+    @PostConstruct
     public void init() {
         System.out.println("Class Dog: init method");
     }
 
+    @PreDestroy
     public void destroy() {
         System.out.println("Class Dog: destroy method");
     }

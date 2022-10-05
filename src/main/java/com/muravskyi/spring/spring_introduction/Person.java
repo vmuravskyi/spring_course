@@ -2,6 +2,7 @@ package com.muravskyi.spring.spring_introduction;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component("personBean")
@@ -11,7 +12,10 @@ public class Person {
 //    @Qualifier("catBean")
     private Pet pet;
 
+//    @Value("${person.surname}")
     private String surname;
+
+//    @Value("${person.age}")
     private int age;
 
 //    public Person() {
@@ -35,11 +39,11 @@ public class Person {
     }
 
     public int getAge() {
-        System.out.println("Class Person: setAge");
         return age;
     }
 
     public void setAge(int age) {
+        System.out.println("Class Person: setAge");
         this.age = age;
     }
 
