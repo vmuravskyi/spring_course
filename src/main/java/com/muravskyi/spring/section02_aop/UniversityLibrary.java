@@ -5,9 +5,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class UniversityLibrary extends AbstractLibrary {
 
-    @Override
-    public void getBook() {
-        System.out.println("We take a book at the UniversityLibrary");
+    public void getBook(Book book) {
+        System.out.println("We take a book at the UniversityLibrary " + book.getName());
     }
 
     public String returnBook() {

@@ -8,7 +8,9 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class LoggingAspect {
 
-    @Before("execution(public void get*())")
+    // execution(* *(..)) - any return type, any method name, any number of parameters and their types
+
+    @Before("execution(public void getBook(com.muravskyi.spring.section02_aop.Book))")
     public void beforeGetBookAdvice() {
         System.out.println("beforeGetBookAdvice: trying to get a book");
     }
