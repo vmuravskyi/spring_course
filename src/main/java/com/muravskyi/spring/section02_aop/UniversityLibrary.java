@@ -1,0 +1,22 @@
+package com.muravskyi.spring.section02_aop;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class UniversityLibrary extends AbstractLibrary {
+
+    @Override
+    public void getBook() {
+        System.out.println("We take a book at the UniversityLibrary");
+    }
+
+    public String returnBook() {
+        System.out.println("We return book to UniversityLibrary");
+        return "OK";
+    }
+
+    public void getMagazine() {
+        System.out.println("We take a magazine at the UniversityLibrary");
+    }
+
+}
