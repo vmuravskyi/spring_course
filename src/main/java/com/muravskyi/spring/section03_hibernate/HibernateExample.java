@@ -6,20 +6,19 @@ import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.junit.jupiter.api.Test;
 
-public class HibernateTest {
+public class HibernateExample {
 
-    private Logger LOGGER = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger();
 
-    @Test
-    void saveEmployee() {
-        SessionFactory factory = new Configuration()
-            .configure("hibernate.cfg.xml")
-            .addAnnotatedClass(Employee.class)
-            .buildSessionFactory();
+    public static void main(String[] args) {
 
-        try {
+        try (
+            SessionFactory factory = new Configuration()
+                .configure("hibernate.cfg.xml")
+                .addAnnotatedClass(Employee.class)
+                .buildSessionFactory()
+        ) {
             // Get created session in configuration. Can be used same session all around the application.
             Session session = factory.getCurrentSession();
 
@@ -31,11 +30,10 @@ public class HibernateTest {
             session.save(emp);
             session.getTransaction().commit();
 
-            LOGGER.info("ID returned from DB: " + emp.getId());
-        } finally {
-            // make sure to close factory
-            factory.close();
+            LOGGER.info("ID returned from DB: {}", emp.getId());
         }
+        // make sure to close factory
+        // using try with resources
     }
 
 }
