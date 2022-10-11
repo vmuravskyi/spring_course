@@ -2,6 +2,8 @@ package com.muravskyi.spring.section03_hibernate.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -11,6 +13,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 public class Employee {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
@@ -84,13 +87,12 @@ public class Employee {
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this)
-            .append("id", id)
-            .append("name", name)
-            .append("surname", surname)
-            .append("department", department)
-            .append("salary", salary)
-            .toString();
+        return "Employee{" +
+            "id=" + id +
+            ", name='" + name + '\'' +
+            ", surname='" + surname + '\'' +
+            ", department='" + department + '\'' +
+            ", salary=" + salary +
+            '}';
     }
-
 }
