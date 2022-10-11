@@ -23,8 +23,7 @@ public class HibernateTest5Delete {
             Session session = factory.getCurrentSession();
             session.beginTransaction();
 
-            Employee employee = session.get(Employee.class, 41
-            ;
+            Employee employee = session.get(Employee.class, 41);
             session.delete(employee);
 
             // to delete more than one object use custom query
