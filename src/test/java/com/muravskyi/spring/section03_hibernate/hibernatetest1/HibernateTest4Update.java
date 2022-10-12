@@ -1,7 +1,6 @@
-package com.muravskyi.spring.section03_hibernate;
+package com.muravskyi.spring.section03_hibernate.hibernatetest1;
 
-import com.muravskyi.spring.section03_hibernate.entity.Employee;
-import java.util.List;
+import com.muravskyi.spring.section03_hibernate.hibernatetest1.entity.Employee;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
@@ -9,7 +8,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.junit.jupiter.api.Test;
 
-public class HibernateTest3Get {
+public class HibernateTest4Update {
 
     private Logger LOGGER = LogManager.getLogger();
 
@@ -24,14 +23,12 @@ public class HibernateTest3Get {
             Session session = factory.getCurrentSession();
             session.beginTransaction();
 
-//            List<Employee> employees = session.createQuery("from Employee").getResultList();
-            List<Employee> employees = session.createQuery("from Employee "
-                    + "where name='Lara' and salary>1000")
-                .getResultList();
+            // no need to save or update, when commit transaction it will be saved in db
+//            Employee employee = session.get(Employee.class, 1);
+//            employee.setSalary(5350);
 
-            for (Employee e : employees) {
-                System.out.println(e);
-            }
+            // another option to updated with a custom query
+            session.createQuery("update Employee set salary=850 where department='HR'").executeUpdate();
 
             session.getTransaction().commit();
             System.out.println("Done");

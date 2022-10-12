@@ -1,6 +1,6 @@
-package com.muravskyi.spring.section03_hibernate;
+package com.muravskyi.spring.section03_hibernate.hibernatetest1;
 
-import com.muravskyi.spring.section03_hibernate.entity.Employee;
+import com.muravskyi.spring.section03_hibernate.hibernatetest1.entity.Employee;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
@@ -8,7 +8,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.junit.jupiter.api.Test;
 
-public class HibernateTest4Update {
+public class HibernateTest5Delete {
 
     private Logger LOGGER = LogManager.getLogger();
 
@@ -23,12 +23,11 @@ public class HibernateTest4Update {
             Session session = factory.getCurrentSession();
             session.beginTransaction();
 
-            // no need to save or update, when commit transaction it will be saved in db
-//            Employee employee = session.get(Employee.class, 1);
-//            employee.setSalary(5350);
+            Employee employee = session.get(Employee.class, 41);
+            session.delete(employee);
 
-            // another option to updated with a custom query
-            session.createQuery("update Employee set salary=850 where department='HR'").executeUpdate();
+            // to delete more than one object use custom query
+//            session.createQuery("delete Employee where name='Bruce'").executeUpdate();
 
             session.getTransaction().commit();
             System.out.println("Done");

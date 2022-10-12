@@ -1,12 +1,14 @@
-package com.muravskyi.spring.section03_hibernate.entity;
+package com.muravskyi.spring.section03_hibernate.hibernatetest2.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import org.apache.commons.lang3.builder.ToStringBuilder;
 
 @Entity
 @Table(name = "employees")
@@ -28,6 +30,10 @@ public class Employee {
 
     @Column(name = "salary")
     private int salary;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "details_id")
+    private Detail empDetail;
 
     public Employee() {
         // default
@@ -85,6 +91,15 @@ public class Employee {
         return this;
     }
 
+    public Detail getEmpDetail() {
+        return empDetail;
+    }
+
+    public Employee setEmpDetail(Detail empDetail) {
+        this.empDetail = empDetail;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -93,6 +108,7 @@ public class Employee {
             ", surname='" + surname + '\'' +
             ", department='" + department + '\'' +
             ", salary=" + salary +
+            ", empDetail=" + empDetail +
             '}';
     }
 }

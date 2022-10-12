@@ -1,6 +1,6 @@
-package com.muravskyi.spring.section03_hibernate;
+package com.muravskyi.spring.section03_hibernate.hibernatetest1;
 
-import com.muravskyi.spring.section03_hibernate.entity.Employee;
+import com.muravskyi.spring.section03_hibernate.hibernatetest1.entity.Employee;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
