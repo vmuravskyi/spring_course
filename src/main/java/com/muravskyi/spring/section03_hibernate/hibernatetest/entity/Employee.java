@@ -1,4 +1,4 @@
-package com.muravskyi.spring.section03_hibernate.hibernatetest1.entity;
+package com.muravskyi.spring.section03_hibernate.hibernatetest.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

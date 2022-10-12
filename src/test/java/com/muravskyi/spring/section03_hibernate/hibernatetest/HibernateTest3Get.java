@@ -1,6 +1,7 @@
-package com.muravskyi.spring.section03_hibernate.hibernatetest1;
+package com.muravskyi.spring.section03_hibernate.hibernatetest;
 
-import com.muravskyi.spring.section03_hibernate.hibernatetest1.entity.Employee;
+import com.muravskyi.spring.section03_hibernate.hibernatetest.entity.Employee;
+import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
@@ -8,7 +9,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.junit.jupiter.api.Test;
 
-public class HibernateTest5Delete {
+public class HibernateTest3Get {
 
     private Logger LOGGER = LogManager.getLogger();
 
@@ -23,11 +24,14 @@ public class HibernateTest5Delete {
             Session session = factory.getCurrentSession();
             session.beginTransaction();
 
-            Employee employee = session.get(Employee.class, 41);
-            session.delete(employee);
+//            List<Employee> employees = session.createQuery("from Employee").getResultList();
+            List<Employee> employees = session.createQuery("from Employee "
+                    + "where name='Lara' and salary>1000")
+                .getResultList();
 
-            // to delete more than one object use custom query
-//            session.createQuery("delete Employee where name='Bruce'").executeUpdate();
+            for (Employee e : employees) {
+                System.out.println(e);
+            }
 
             session.getTransaction().commit();
             System.out.println("Done");

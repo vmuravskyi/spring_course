@@ -1,7 +1,7 @@
-package com.muravskyi.spring.section03_hibernate.hibernatetest2;
+package com.muravskyi.spring.section03_hibernate.hibernate_one_to_one;
 
-import com.muravskyi.spring.section03_hibernate.hibernatetest2.entity.Detail;
-import com.muravskyi.spring.section03_hibernate.hibernatetest2.entity.Employee;
+import com.muravskyi.spring.section03_hibernate.hibernate_one_to_one.entity.Detail;
+import com.muravskyi.spring.section03_hibernate.hibernate_one_to_one.entity.Employee;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;

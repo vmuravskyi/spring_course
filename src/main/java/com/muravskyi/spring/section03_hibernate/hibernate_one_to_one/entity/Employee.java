@@ -1,4 +1,4 @@
-package com.muravskyi.spring.section03_hibernate.hibernatetest2.entity;
+package com.muravskyi.spring.section03_hibernate.hibernate_one_to_one.entity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
