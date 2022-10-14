@@ -1,3 +1,5 @@
+package com.muravskyi.spring.section03_hibernate;
+
 import javax.persistence.metamodel.EntityType;
 import org.hibernate.HibernateException;
 import org.hibernate.Metamodel;
