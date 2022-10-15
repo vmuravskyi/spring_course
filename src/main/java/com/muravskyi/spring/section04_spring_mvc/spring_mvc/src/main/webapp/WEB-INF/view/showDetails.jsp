@@ -23,6 +23,7 @@ Employee's surname: ${employee.surname}
 <br>
 Employee's salary: ${employee.salary}
 <br>
+Employee's department: ${employee.department}
 
 </body>
 </html>
