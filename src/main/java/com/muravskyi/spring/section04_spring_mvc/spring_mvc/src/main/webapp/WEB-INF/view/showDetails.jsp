@@ -17,7 +17,12 @@
 <br>
 
 <%--Your name: ${param.employeeName}--%>
-Your name: ${nameAttribute}
+Employee's name: ${employee.name}
+<br>
+Employee's surname: ${employee.surname}
+<br>
+Employee's salary: ${employee.salary}
+<br>
 
 </body>
 </html>
