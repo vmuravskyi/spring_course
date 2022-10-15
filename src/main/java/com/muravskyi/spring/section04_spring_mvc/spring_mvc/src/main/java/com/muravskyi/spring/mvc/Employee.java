@@ -10,12 +10,26 @@ public class Employee {
     private int salary;
     private String department;
     private Map<String, String> departments;
+    private String carBrand;
+    private Map<String, String> carBrands;
+    private String[] languages;
+    private Map<String, String> languagesContainer;
 
     public Employee() {
         departments = new HashMap<>();
         departments.put("Information Technology", "IT");
         departments.put("Human Resources", "HR");
         departments.put("Sales", "Sales");
+
+        carBrands = new HashMap<>();
+        carBrands.put("BMW", "BMW");
+        carBrands.put("Audi", "Audi");
+        carBrands.put("Mercedes-Benz", "Mercedes-Benz");
+
+        languagesContainer = new HashMap<>();
+        languagesContainer.put("English", "EN");
+        languagesContainer.put("French", "FR");
+        languagesContainer.put("Deutsch", "DE");
     }
 
     public String getName() {
@@ -58,6 +72,38 @@ public class Employee {
         this.departments = departments;
     }
 
+    public String getCarBrand() {
+        return carBrand;
+    }
+
+    public void setCarBrand(String carBrand) {
+        this.carBrand = carBrand;
+    }
+
+    public Map<String, String> getCarBrands() {
+        return carBrands;
+    }
+
+    public void setCarBrands(Map<String, String> carBrands) {
+        this.carBrands = carBrands;
+    }
+
+    public String[] getLanguages() {
+        return languages;
+    }
+
+    public void setLanguages(String[] languages) {
+        this.languages = languages;
+    }
+
+    public Map<String, String> getLanguagesContainer() {
+        return languagesContainer;
+    }
+
+    public void setLanguagesContainer(Map<String, String> languagesContainer) {
+        this.languagesContainer = languagesContainer;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -65,6 +111,7 @@ public class Employee {
                 ", surname='" + surname + '\'' +
                 ", salary=" + salary +
                 ", department='" + department + '\'' +
+                ", carBrand='" + carBrand + '\'' +
                 '}';
     }
 

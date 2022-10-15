@@ -27,7 +27,12 @@
     <form:options items="${employee.departments}"/>
     </form:select>
     <br>
-
+    Which car do you prefer?
+    <form:radiobuttons path="carBrand" items="${employee.carBrands}"/>
+    <br>
+    Foreign Language(s):
+    <form:checkboxes path="languages" items="${employee.languagesContainer}"/>
+    <br>
     <input type="submit" value="OK">
 
 </form:form>
