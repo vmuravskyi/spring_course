@@ -20,7 +20,6 @@ public class Test2 {
         } catch (Exception e) {
             System.out.println("Caught:" + e);
         }
-
         context.close();
     }
 
