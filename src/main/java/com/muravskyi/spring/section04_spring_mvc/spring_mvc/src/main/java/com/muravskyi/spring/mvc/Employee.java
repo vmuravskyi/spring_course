@@ -1,19 +1,42 @@
 package com.muravskyi.spring.mvc;
 
+import com.muravskyi.spring.mvc.validation.ValidateEmail;
+
+import javax.validation.constraints.*;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Employee {
 
+    @Size(min = 2, max = 12, message = "Name must be min 2 and max 12 symbols")
+    @NotBlank(message = "Name cannot be blank")
     private String name;
+
+    @NotEmpty(message = "Surname is required")
+    @NotBlank(message = "Surname cannot be blank")
     private String surname;
+
+    @Min(value = 100, message = "Salary must be greater then 100")
+    @Max(value = 10000, message = "Salary must be less or equal to 10000")
     private int salary;
+
     private String department;
+
     private Map<String, String> departments;
+
     private String carBrand;
+
     private Map<String, String> carBrands;
+
     private String[] languages;
+
     private Map<String, String> languagesContainer;
+
+    @ValidateEmail(value = "abc.com", message = "Email must end with abc.com")
+    private String email;
+
+    @Pattern(regexp = "\\d{3}-\\d{2}-\\d{2}", message = "Phone number must be in format 999-99-99")
+    private String phoneNumber;
 
     public Employee() {
         departments = new HashMap<>();
@@ -104,6 +127,22 @@ public class Employee {
         this.languagesContainer = languagesContainer;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -112,6 +151,8 @@ public class Employee {
                 ", salary=" + salary +
                 ", department='" + department + '\'' +
                 ", carBrand='" + carBrand + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 

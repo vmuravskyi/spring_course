@@ -2,8 +2,11 @@ package com.muravskyi.spring.mvc;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/employee")
@@ -35,10 +38,14 @@ public class myController {
 //    }
 
     @RequestMapping("/showDetails")
-    public String showEmpDetails(@ModelAttribute("employee") Employee employee) {
-        String mrName = "Mr." + employee.getName();
-        employee.setName(mrName);
-        return "showDetails";
+    public String showEmpDetails(@Valid @ModelAttribute("employee") Employee employee, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "ask-emp-details-view";
+        } else {
+            String mrName = "Mr." + employee.getName();
+            employee.setName(mrName);
+            return "showDetails";
+        }
     }
 
 }
