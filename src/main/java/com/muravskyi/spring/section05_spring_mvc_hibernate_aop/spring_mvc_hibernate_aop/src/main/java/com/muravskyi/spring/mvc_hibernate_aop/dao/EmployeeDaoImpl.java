@@ -24,9 +24,23 @@ public class EmployeeDaoImpl implements EmployeeDao {
     }
 
     @Override
-    public void saveEmployee(Employee employee) {
+    public void saveOrUpdate(Employee employee) {
         Session session = sessionFactory.getCurrentSession();
-        session.save(employee);
+        session.saveOrUpdate(employee);
+    }
+
+    @Override
+    public Employee getEmployee(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(Employee.class, id);
+    }
+
+    @Override
+    public void delete(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        Query<Employee> query = session.createQuery("delete from Employee where id = :employeeId");
+        query.setParameter("employeeId", id);
+        query.executeUpdate();
     }
 
 }

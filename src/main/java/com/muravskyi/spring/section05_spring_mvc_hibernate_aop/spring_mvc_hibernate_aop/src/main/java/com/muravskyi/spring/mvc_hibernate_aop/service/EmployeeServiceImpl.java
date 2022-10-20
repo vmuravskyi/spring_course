@@ -22,8 +22,20 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     @Transactional
-    public void saveEmployee(Employee employee) {
-        employeeDao.saveEmployee(employee);
+    public void saveOrUpdate(Employee employee) {
+        employeeDao.saveOrUpdate(employee);
+    }
+
+    @Override
+    @Transactional
+    public Employee getEmployee(int id) {
+        return employeeDao.getEmployee(id);
+    }
+
+    @Override
+    @Transactional
+    public void deleteEmployee(int id) {
+        employeeDao.delete(id);
     }
 
 }
