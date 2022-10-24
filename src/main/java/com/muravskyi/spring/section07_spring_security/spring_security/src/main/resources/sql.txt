@@ -1,0 +1,28 @@
+USE my_db;
+
+CREATE TABLE users (
+  username varchar(15),
+  password varchar(100),
+  enabled tinyint(1),
+  PRIMARY KEY (username)
+) ;
+
+CREATE TABLE authorities (
+  username varchar(15),
+  authority varchar(25),
+  FOREIGN KEY (username) references users(username)
+) ;
+
+INSERT INTO my_db.users (username, password, enabled)
+VALUES
+	('volodymyr', '{noop}admin', 1),
+	('oliver', '{noop}admin', 1),
+	('jack', '{noop}admin', 1);
+
+INSERT INTO my_db.authorities (username, authority)
+VALUES
+	('volodymyr', 'ROLE_EMPLOYEE'),
+	('oliver', 'ROLE_HR'),
+    ('jack', 'ROLE_HR'),
+	('jack', 'ROLE_MANAGER');
+
